@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: githubsearch
+
+  mvc:
+    problemdetails:
+      enabled: false
+
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/github_search}
+    username: ${DB_USERNAME:github_user}
+    password: ${DB_PASSWORD:local_dev_password}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+server:
+  port: 8080
+
+github:
+  api:
+    base-url: https://api.github.com
+    token: ${GITHUB_TOKEN:}
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
